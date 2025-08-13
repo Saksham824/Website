@@ -22,7 +22,7 @@ export default function Navbar() {
           to="/"
           className="font-extrabold text-2xl tracking-tight flex items-center gap-2 select-none"
         >
-          <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-2xl text-transparent drop-shadow">
+          <span className="bg-gradient-to-r from-green-500 via-cyan-400 to-green-500 bg-clip-text text-2xl text-transparent drop-shadow">
             Mahadev Traders
           </span>
         </Link>
@@ -32,14 +32,14 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className="hover:text-blue-500 focus:text-blue-600 transition-colors duration-200 font-medium px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="hover:text-green-500 focus:text-green-600 transition-colors duration-200 font-medium px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
             >
               {link.label}
             </Link>
           ))}
           <Link
             to="/cart"
-            className="relative flex items-center hover:text-blue-500 focus:text-blue-600 transition-colors duration-200 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="relative flex items-center hover:text-green-500 focus:text-green-600 transition-colors duration-200 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
           >
             <ShoppingCartIcon className="h-6 w-6" />
             {cart.length > 0 && (
@@ -51,7 +51,7 @@ export default function Navbar() {
         </nav>
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="md:hidden p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-green-400"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -75,7 +75,7 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className="hover:text-blue-500 focus:text-blue-600 transition-colors duration-200 font-medium py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="hover:text-green-500 focus:text-green-600 transition-colors duration-200 font-medium py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -83,7 +83,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/cart"
-            className="relative flex items-center justify-center hover:text-blue-500 focus:text-blue-600 transition-colors duration-200 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="relative flex items-center justify-center hover:text-green-500 focus:text-green-600 transition-colors duration-200 py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
             onClick={() => setMenuOpen(false)}
           >
             <ShoppingCartIcon className="h-6 w-6 mr-1" />
