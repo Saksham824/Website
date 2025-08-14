@@ -16,16 +16,16 @@ export default function Footer() {
           {/* Navigation Links */}
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link
-             to="/" className="hover:text-gray-300 transition-colors">Home</Link
+             to="/" className="hover:text-green-300 transition-colors">Home</Link
             >
             <Link
-             to="/products" className="hover:text-gray-300 transition-colors">Products</Link
+             to="/products" className="hover:text-green-300 transition-colors">Products</Link
             >
             <Link
-             to="/about" className="hover:text-gray-300 transition-colors">About</Link
+             to="/about" className="hover:text-green-300 transition-colors">About</Link
             >
             <Link
-             to="/contact" className="hover:text-gray-300 transition-colors">Contact</Link
+             to="/contact" className="hover:text-green-300 transition-colors">Contact</Link
             >
           </div>
 

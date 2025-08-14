@@ -1,11 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const sampleProducts = [
-  { id: 'p1', name: 'OPC Cement 53 Grade (50kg)', category: 'Cement', price: 420, stock: 120, description: 'High-strength OPC cement for construction.' },
-  { id: 'p2', name: 'TMT Iron Rod 8mm', category: 'Iron Rods', price: 1500, stock: 200, description: 'Thermo-Mechanically Treated (TMT) rods for reinforced concrete.' },
-  { id: 'p3', name: 'PPC Cement (50kg)', category: 'Cement', price: 380, stock: 80, description: 'Portland Pozzolana Cement suitable for general use.' },
-];
-
 const ProductsContext = createContext();
 
 export default function ProductsProvider({ children }) {

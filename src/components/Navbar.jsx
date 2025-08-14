@@ -18,13 +18,9 @@ export default function Navbar() {
   return (
     <header className="backdrop-blur bg-white/70 dark:bg-slate-800/80 shadow-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
-        <Link
-          to="/"
-          className="font-extrabold text-2xl tracking-tight flex items-center gap-2 select-none"
-        >
-          <span className="bg-gradient-to-r from-green-500 via-cyan-400 to-green-500 bg-clip-text text-2xl text-transparent drop-shadow">
-            Mahadev Traders
-          </span>
+        <Link to="/" className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-full bg-yellow-500 text-black grid place-items-center font-extrabold">MT</div>
+          <span className="text-yellow-400 font-extrabold tracking-wide text-xl">Mahadev Traders</span>
         </Link>
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
