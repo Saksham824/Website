@@ -56,7 +56,7 @@ export default function Hero() {
                 <motion.div
                   whileHover={{ scale: 1.08 }}
                   key={i}
-                  className="bg-white p-3 sm:p-4 rounded-xl shadow-lg w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center"
+                  className="bg-slate-800 p-3 sm:p-4 rounded-xl shadow-lg w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center"
                 >
                   <img
                     src={src}
