@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCart } from "../CartContext";
+import toast from "react-hot-toast";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
@@ -14,6 +15,11 @@ export default function ProductCard({ product }) {
   const handleSizeChange = (e) => {
     const size = product.sizes.find((s) => s.size === e.target.value);
     setSelectedSize(size);
+  };
+
+  const handleAdd = () => {
+    addToCart({ ...product, selectedSize }, 1);
+    toast.success(`${product.name} added to cart!`);
   };
 
   return (
@@ -57,7 +63,7 @@ export default function ProductCard({ product }) {
           </div>
         </div>
         <button
-          onClick={() => addToCart({ ...product, selectedSize }, 1)}
+           onClick={handleAdd}
           className="px-4 py-2 bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-400 text-white rounded-lg font-semibold shadow transition"
         >
           Add

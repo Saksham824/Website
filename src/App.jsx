@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import AdminPanel, { AdminForm } from "./pages/Admin";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export default function App(){
   return (
@@ -27,6 +28,7 @@ export default function App(){
               <Route path="/admin/new" element={<AdminForm />} />
               <Route path="/admin/edit/:id" element={<AdminForm />} />
             </Routes>
+             <Toaster position="top-right" reverseOrder={false} />
             <Footer/>
           </div>
         </CartProvider>

@@ -1,15 +1,32 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import captian_600 from "../assets/captain_600.jpg";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+
 import captian_tmt from "../assets/captain_tmt.jpg";
 import super_next from "../assets/super_next.jpg";
-import tmtbar from "../assets/tmtbar.jpg";
 import video1 from "../assets/video1.mp4";
 import video2 from "../assets/video2.mp4";
 import video3 from "../assets/video3.mp4";
 import video4 from "../assets/video4.mp4";
 
+const brandData = [
+  {
+    name: "Captain TMT",
+    img: captian_tmt,
+    description:
+      "Captain Steel India Limited is one of the leading producers of quality TMT bars in India. We manufacture the most trusted steel products like- TMT Bar, TMT Ring, Rust Guard & more. We began our journey in 2007, by establishing our first manufacturing plant in Kalyaneshwari, West Bengal.The same year, this facility began producing TMT bars using Thermex technology from Germany.Captain TMT bars are known for superior strength, durability, and resistance to corrosion. Ideal for residential and commercial projects.",
+  },
+  {
+    name: "Super NextTMT Wire",
+    img: super_next,
+    description:
+      "Super Next TMT Wire 22G is produced using high-quality raw materials, processed in advanced furnaces to achieve the desired gauge and properties. Rigorous quality control tests ensure the wire meets industry standards for tensile strength and flexibility. Once approved, it is carefully packaged and labeled for efficient distribution. Continuous customer feedback drives improvements in production, ensuring Super Next TMT Wire 22G consistently delivers reliability and excellence to meet client needs.",
+  },
+];
+
 export default function Hero() {
+  const [selectedBrand, setSelectedBrand] = useState(null);
+
   return (
     <section className="relative bg-slate-900 text-white min-h-screen overflow-x-hidden">
       {/* Background Overlay */}
@@ -52,15 +69,16 @@ export default function Hero() {
           <div className="mt-12">
             <h2 className="text-lg sm:text-xl font-semibold mb-4">Our Brands</h2>
             <div className="flex flex-wrap gap-6 sm:gap-8">
-              {[captian_600, captian_tmt, super_next, tmtbar].map((src, i) => (
+              {brandData.map((brand, i) => (
                 <motion.div
                   whileHover={{ scale: 1.08 }}
                   key={i}
-                  className="bg-slate-800 p-3 sm:p-4 rounded-xl shadow-lg w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center"
+                  onClick={() => setSelectedBrand(brand)}
+                  className="bg-slate-800 p-3 sm:p-4 rounded-xl shadow-lg w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center cursor-pointer"
                 >
                   <img
-                    src={src}
-                    alt={`Brand ${i + 1}`}
+                    src={brand.img}
+                    alt={brand.name}
                     className="object-contain max-h-20 sm:max-h-28 w-full"
                   />
                 </motion.div>
@@ -79,7 +97,9 @@ export default function Hero() {
           <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 rounded-full bg-yellow-400 flex items-center justify-center text-2xl sm:text-3xl font-bold">
             MT
           </div>
-          <h3 className="text-lg sm:text-xl font-semibold mb-3 text-center">About Us</h3>
+          <h3 className="text-lg sm:text-xl font-semibold mb-3 text-center">
+            About Us
+          </h3>
           <p className="text-sm text-gray-700 mb-4 text-center">
             Mahadev Traders is your reliable partner for high-quality cement and
             TMT iron rods. With years of experience, we ensure timely delivery
@@ -101,7 +121,9 @@ export default function Hero() {
 
       {/* Videos Section */}
       <div className="relative max-w-7xl mx-auto px-4 py-10 md:py-16 z-10">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-center md:text-left">See Us in Action</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-center md:text-left">
+          See Us in Action
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[video1, video2, video3, video4].map((src, i) => (
             <motion.video
@@ -109,6 +131,7 @@ export default function Hero() {
               src={src}
               controls
               muted
+              autoPlay
               whileHover={{ scale: 1.03 }}
               className="rounded-xl w-full aspect-video shadow-lg border border-gray-200 bg-black"
             ></motion.video>
@@ -123,6 +146,43 @@ export default function Hero() {
       >
         Get a Quote
       </Link>
+
+      {/* Modal for Brand Details */}
+      <AnimatePresence>
+        {selectedBrand && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white rounded-2xl shadow-2xl p-6 max-w-md w-full relative text-black"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+            >
+              <button
+                className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
+                onClick={() => setSelectedBrand(null)}
+              >
+                ✖
+              </button>
+              <img
+                src={selectedBrand.img}
+                alt={selectedBrand.name}
+                className="w-32 h-32 object-contain mx-auto mb-4"
+              />
+              <h3 className="text-xl font-semibold text-center mb-3">
+                {selectedBrand.name}
+              </h3>
+              <p className="text-gray-700 text-center">
+                {selectedBrand.description}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
